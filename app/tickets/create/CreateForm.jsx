@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const CreateForm = () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const CreateForm = () => {
   const [body, setBody] = useState("");
   const [priority, setPriority] = useState("low");
   const [loading, setLoading] = useState(false);
-
+  const queryClient = useQueryClient();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -22,6 +23,7 @@ const CreateForm = () => {
 
     if (res.status === 201) {
       router.refresh();
+      queryClient.invalidateQueries("myData");
       router.push("/tickets");
     }
   };

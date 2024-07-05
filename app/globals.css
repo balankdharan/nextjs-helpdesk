@@ -4,12 +4,14 @@
 
 /* base styles */
 body {
-  background: #ebf0fa;
-  @apply text-gray-500 m-8;
+  background: #26355d;
+  @apply m-8;
+  color: #fff;
 }
 h1,
 h2 {
-  @apply font-bold text-primary text-lg;
+  @apply font-bold text-lg;
+  color: #ffdb00;
 }
 main {
   @apply max-w-5xl my-12 mx-auto px-8;
@@ -24,17 +26,23 @@ p > a {
 /* nav styles */
 nav {
   @apply pb-4
-    border-b-2 border-gray-200
+    border-b-2 
     flex items-center gap-5 
     my-10 mx-auto 
     max-w-5xl;
 }
 nav a,
 nav span {
-  @apply text-gray-500;
+  /* @apply text-gray-500; */
+  color: white;
 }
-nav a:hover {
+nav a:not(:first-of-type):hover {
   @apply text-black;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 7px;
+  background-color: white;
+  transition: ease-out 0.2s;
 }
 main nav {
   @apply border-0;
@@ -51,7 +59,8 @@ button:hover {
   @apply bg-opacity-90;
 }
 .btn-primary {
-  @apply bg-primary text-white;
+  @apply text-white;
+  background-color: #e2c506;
 }
 .btn-secondary {
   @apply bg-gray-200 text-gray-900;
@@ -60,15 +69,18 @@ button:hover {
 /* form styles */
 form {
   @apply py-4 px-7 
-    bg-primary 
+   
     bg-opacity-5 
     rounded-md 
     block 
     mx-auto 
     min-w-fit w-1/4;
+  background-color: white;
 }
 form label {
   @apply block;
+  color: black;
+  font-weight: 500;
 }
 form input,
 form textarea,
@@ -76,6 +88,7 @@ form select {
   @apply block 
     mt-2 my-4 px-2 py-1 
     rounded-sm w-full;
+  border: 1px solid lightblue;
 }
 form button {
   @apply block mx-auto;
@@ -109,6 +122,7 @@ form button {
 }
 .card p {
   @apply my-4 text-sm leading-6;
+  color: #000;
 }
 
 /* pill styles */

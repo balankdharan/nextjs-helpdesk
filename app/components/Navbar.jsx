@@ -5,7 +5,10 @@ import Logo from "./logo.png";
 const Navbar = () => {
   return (
     <nav>
-      <Image src={Logo} alt="logo" width={90} quality={100} />
+      <Link href="/">
+        <Image src={Logo} alt="logo" width={90} quality={100} />
+      </Link>
+
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Ticket</Link>
     </nav>

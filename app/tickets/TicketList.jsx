@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 
 async function getTickets() {
   // await new Promise((resolve) => {
@@ -12,8 +14,16 @@ async function getTickets() {
   return data.json();
 }
 
-const TicketList = async () => {
-  const tickets = await getTickets();
+const TicketList = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryFn: async () => await getTickets(),
+    queryKey: ["tickets"], //Array according to Documentation
+  });
+  // console.log("Loading", data);
+
+  const tickets = data;
+  if (isLoading) return "Loading...";
+  if (isError) return <div>Sorry There was an Error</div>;
   return (
     <>
       {tickets.map((ticket) => (
